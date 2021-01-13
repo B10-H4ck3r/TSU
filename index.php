@@ -147,7 +147,7 @@
   </section>
 
   <!-- Image element - set the background image for the header in the line below -->
-  <div class="py-5 bg-image-full" style="background-image: url('cybersecurity-banner.jpeg'); ">
+  <div class="py-5 bg-image-full" style="background-image: url('img/cybersecurity-banner.jpeg'); ">
     <div style="height: 300px;"></div>
   </div>
 
