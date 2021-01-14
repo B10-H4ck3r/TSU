@@ -12,10 +12,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.php">About</a>
+          <a class="nav-link" href="localhost:3000" target="_blank">Get Quotes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="form.php">Forms</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
