@@ -15,9 +15,9 @@ If mailgun is used AND the form has file upload field, PHP 5.5+ is required.
 
 */
 
-require_once( __DIR__ . '/form.config.php' );
+require_once( __DIR__ . 'forms/form1/form.config.php' );
 
-$dbFile = __DIR__ . '/form.db.php';
+$dbFile = __DIR__ . 'forms/form1/form.db.php';
 if( file_exists( $dbFile ) ){
     require_once( $dbFile );
 }
@@ -32,15 +32,15 @@ class Form {
     }
 
     public static function getFormDataFile(){
-        return self::$dataDir . '/form-data.php' ;
+        return self::$dataDir . 'forms/form1/form-data.php' ;
     }
 
     public static function getEmailLogFile(){
-        return self::$dataDir . '/email-log.php' ;
+        return self::$dataDir . 'forms/form1/email-log.php' ;
     }
 
     public static function getSmsLogFile(){
-        return self::$dataDir . '/sms-log.php' ;
+        return self::$dataDir . 'forms/form1/sms-log.php' ;
     }
 
     public static function validate( $post = array() ){
@@ -208,12 +208,12 @@ class Form {
         if(  !empty($f['field_options']['sender']) ){
             switch (true){
                 case ( 'verify_sender' == $f['field_type'] && true == $f['field_options']['sender'] && stripos($value,'@') !== false ) :
-                case ( 'email' == $f['field_type'] && true == $f['field_options']['sender'] ) : 
+                case ( 'email' == $f['field_type'] && true == $f['field_options']['sender'] ) :
                     $f['field_options']['sender'] = 'email';
                     break;
 
                 case ( 'verify_sender' == $f['field_type'] && true == $f['field_options']['sender'] && stripos($value,'@') === false ) :
-                case ( 'phone' == $f['field_type'] && true == $f['field_options']['sender'] ) : 
+                case ( 'phone' == $f['field_type'] && true == $f['field_options']['sender'] ) :
                     $f['field_options']['sender'] = 'phone';
                     break;
             };
@@ -241,10 +241,10 @@ class Form {
 
         self::$rows[] = "<tr> <td valign=top style='" . self::$style."font-weight:bold;width:25%;'>" . $f['label'] . "&nbsp;</td> <td valign=top style='" . self::$style.";'>" . nl2br($value) . "&nbsp;</td></tr>" ;
         self::$sms[] = strip_tags($f['label']) . ":\n" . strip_tags($value);
-*/        
+*/
     } // _validateField
 
-    // add field or its' sub fields label and value, for saving to csv file, to email, and to sms 
+    // add field or its' sub fields label and value, for saving to csv file, to email, and to sms
     public static function addColumnValue( $key, $label, $value ){
         self::$values[ $key ] = $value;
         self::$columns[]      = self::csvfield( $label );
@@ -419,7 +419,7 @@ class Form {
             };
             $names[] = $fileName;
             $counter ++;
-            
+
         }; // for each
 
         return join(", ",$names);
@@ -547,7 +547,7 @@ class Form {
         return $users;
     }
 
-    // avoid email header injection by removing line breaks for email headers 
+    // avoid email header injection by removing line breaks for email headers
     private static function removeLineBreaks( $str ){
         return trim(preg_replace('/[\r\n]+/', '', $str));
     }
@@ -759,7 +759,7 @@ class Form {
     }
 
     public static function getDataDir(){
-        $dir = dirname( self::getFormDataFile() ); 
+        $dir = dirname( self::getFormDataFile() );
         if( !is_dir($dir) ){
             @mkdir( $dir );
         };
@@ -871,7 +871,7 @@ class Form {
     private static $post;
     private static $values;
     private static $invalid;
-    private static $isValidated = false; 
+    private static $isValidated = false;
     private static $attachments;
 
     private static $dataDir = './data/'; // folder that stores form data file, email traffic log, and upload files

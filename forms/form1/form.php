@@ -140,7 +140,7 @@
 
   </style>
   <div class="container jf-form">
-  <form data-licenseKey="" name="jqueryform-38d657" id="jqueryform-38d657" action='admin.php' method='post' enctype='multipart/form-data' novalidate autocomplete="on">
+  <form data-licenseKey="JF-610826261H602281H" name="jqueryform-38d657" id="jqueryform-38d657" action='forms/form1/admin.php' method='post' enctype='multipart/form-data' novalidate autocomplete="on">
   <input type="hidden" name="method" value="validateForm">
   <input type="hidden" id="serverValidationFields" name="serverValidationFields" value="">
 
@@ -742,7 +742,7 @@
 
   <div class="form-group f51 required" data-fid="f51">
     <label class="control-label" for="f51">Applicant Signature:</label>
-    <input type="text" id="f51" data-rule-required="true" class="canvasData">
+  <input type="text" class="canvasData" value="" id="f51" name="f51" data-rule-required="true"  >
 
 
 
@@ -903,45 +903,6 @@
   }
   </style>
 
-  <script type="text/javascript">
-
-    $('canvas.signature').each( function() {
-      var $t = $(this), $s = $t.sketch(), S = $s.data('sketch'), $image = $('#'+$t.data('signatureid')), dirty = false;
-      $t.data( 'signatureblank', S.el.toDataURL() );
-
-      S.canvas.on('mouseup touchmove touchend touchcancel', function(){
-        dirty = true;
-      });
-
-      $s.next('.clearCavans').click( function(){
-        S.context.clearRect(0, 0, S.canvas.width(), S.canvas.height());
-        S.actions.length = 0;
-        $image.val('');
-        $image.valid();
-        dirty = false;
-      });
-
-      // watch update on the signature
-      setInterval( function(){
-        if( !dirty ){
-          return;
-        };
-
-        // blank signature?
-        var imgdataNew = S.el.toDataURL();
-        if( $t.data( 'signatureblank') == imgdataNew ){
-          $image.val('blank');
-          return;
-        };
-
-        $image.val( '<img src="' + imgdataNew + '">' );
-        $image.valid();
-        dirty = false;
-      },350);
-
-    });
-
-  </script>
   <script type="text/javascript">
 
   	// start jqueryform initialization
