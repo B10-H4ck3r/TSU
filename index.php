@@ -13,9 +13,13 @@
 ?>
 
   <!-- Image element - set the background image for the header in the line below -->
-  <div class="py-5 bg-image-full" style="background-image: url('img/about-us-banner.jpeg');">
-    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
-    <div style="height: 300px;"></div>
+  <div class="py-5 bg-image-full" style="background-image: url('img/about-us-banner.jpeg'); height: 400px;">
+    <div style="margin-top: 100px; text-align: center">
+      <button class="btn btn-lg btn-primary">Personal Lines Quotes</button>
+      <button class="btn btn-lg btn-success">Commercial Auto Quotes</button>
+      <button class="btn btn-lg btn-danger">Commercial Property &amp; Casualty Quotes</button>
+      <button class="btn btn-lg btn-warning">Garage Quotes</button>
+    </div>
   </div>
 
   <!-- Content section -->
